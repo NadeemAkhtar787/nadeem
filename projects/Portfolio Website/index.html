@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Developer Portfolio</title>
+  <meta name="description" content="Modern front-end developer portfolio with Lucide transparent icons, responsive layout, theme toggle, project filters, and separated HTML/CSS/JS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home">Dev<span>Portfolio</span></a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="toolbar-actions">
+        <button id="themeToggle" aria-label="Toggle theme" class="icon-btn">
+          <i data-lucide="moon-star" class="icon"></i>
+        </button>
+
+        <button id="menuToggle" aria-label="Toggle menu" class="icon-btn menu-toggle">
+          <i data-lucide="menu" class="icon menu-open-icon"></i>
+          <i data-lucide="x" class="icon menu-close-icon hidden"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <main id="home" class="container">
+    <section class="hero">
+      <div class="fade-up">
+        <div class="eyebrow">Front-End Web Developer</div>
+        <h1>I build fast, modern, and user-focused web interfaces.</h1>
+        <p class="lead">
+          This is a dynamic portfolio. It is built to present your work clearly,
+          filter projects instantly, and position you as a serious front-end developer.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-outline" href="#contact">Contact Me</a>
+          <a class="btn btn-outline" href="#">Download CV</a>
+        </div>
+
+        <div class="btn-row btn-row-badges">
+          <span class="badge">
+            <i data-lucide="map-pinned" class="icon"></i>
+            Remote / Your City
+          </span>
+          <span class="badge">
+            <i data-lucide="badge-check" class="icon"></i>
+            Available for freelance work
+          </span>
+        </div>
+      </div>
+
+      <div class="card hero-panel fade-up">
+        <div class="panel-inner">
+          <div class="panel-title">
+            <div>
+              <div class="eyebrow panel-eyebrow">Developer Snapshot</div>
+              <h3>Professional Portfolio UI</h3>
+            </div>
+            <span class="badge">
+              <i data-lucide="sparkles" class="icon"></i>
+              Live UI
+            </span>
+          </div>
+
+          <div class="hero-stats" id="heroStats"></div>
+
+          <div class="small-card stack-card">
+            <div class="stack-header">
+              <strong>Core Stack</strong>
+              <span class="muted">Front-end focus</span>
+            </div>
+            <div class="chip-row" id="coreSkills"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-4 fade-up" id="statsGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-title-wrap fade-up">
+        <div class="eyebrow">About Me</div>
+        <h2>I design interfaces that look sharp and work harder.</h2>
+        <p class="lead">
+          Most portfolios are decorative. Strong portfolios are strategic. This layout is designed
+          to make your skills, projects, and credibility easy to scan and hard to ignore.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card fade-up">
+          <div class="card-inner">
+            <h3>Who I Am</h3>
+            <p class="muted copy">
+              I create responsive websites and modern interfaces using HTML, CSS, JavaScript,
+              reusable components, and clean visual structure.
+              I care about performance, accessibility, readability, and how real users move through a product.
+            </p>
+            <p class="muted copy no-margin">
+              Replace this text with your real story. State what you build, who you build it for,
+              and why your work is stronger than generic template-level front-end work.
+            </p>
+          </div>
+        </div>
+
+        <div class="card fade-up">
+          <div class="card-inner">
+            <h3>Quick Info</h3>
+            <div class="quick-info">
+              <div class="quick-info-item">
+                <span class="quick-icon"><i data-lucide="user-round" class="icon"></i></span>
+                <div>
+                  <strong>Name</strong><br />
+                  <span class="muted">Your Name</span>
+                </div>
+              </div>
+              <div class="quick-info-item">
+                <span class="quick-icon"><i data-lucide="mail" class="icon"></i></span>
+                <div>
+                  <strong>Email</strong><br />
+                  <span class="muted">yourname@email.com</span>
+                </div>
+              </div>
+              <div class="quick-info-item">
+                <span class="quick-icon"><i data-lucide="briefcase-business" class="icon"></i></span>
+                <div>
+                  <strong>Specialty</strong><br />
+                  <span class="muted">Responsive UI, landing pages, dashboards</span>
+                </div>
+              </div>
+              <div class="quick-info-item">
+                <span class="quick-icon"><i data-lucide="map-pin" class="icon"></i></span>
+                <div>
+                  <strong>Location</strong><br />
+                  <span class="muted">Remote / Your City</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-title-wrap fade-up">
+        <div class="eyebrow">Skills & Services</div>
+        <h2>The stack and services clients actually care about.</h2>
+        <p class="lead">
+          Skills alone do not sell you. Clear presentation of what you can build and how you solve problems does.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card fade-up">
+          <div class="card-inner">
+            <h3>Technical Skills</h3>
+            <p class="muted">Clear, readable, and easy to scan.</p>
+            <div class="tag-row" id="skillTags"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-2" id="servicesGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="project-toolbar fade-up">
+        <div class="section-title-wrap project-title-wrap">
+          <div class="eyebrow">Projects</div>
+          <h2>A portfolio without strong project presentation is weak.</h2>
+          <p class="lead no-margin">
+            These project cards are rendered dynamically with JavaScript and filtered instantly by category.
+          </p>
+        </div>
+        <div class="filters" id="filterButtons"></div>
+      </div>
+
+      <div class="grid grid-3" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3" id="testimonialsGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="card contact-card fade-up">
+          <div class="card-inner">
+            <div class="eyebrow">Contact</div>
+            <h2 class="contact-heading">Let’s build something that does not look average.</h2>
+            <p class="lead">
+              This contact form is front-end only. It demonstrates the user interface and validation.
+              For real delivery, connect it to EmailJS, Formspree, Firebase, or your backend.
+            </p>
+
+            <div class="quick-info contact-info-grid">
+              <div class="quick-info-item">
+                <span class="quick-icon"><i data-lucide="mail" class="icon"></i></span>
+                <div>
+                  <strong>Email</strong><br />
+                  <span class="muted">yourname@email.com</span>
+                </div>
+              </div>
+              <div class="quick-info-item">
+                <span class="quick-icon"><i data-lucide="phone" class="icon"></i></span>
+                <div>
+                  <strong>Phone</strong><br />
+                  <span class="muted">+92 300 0000000</span>
+                </div>
+              </div>
+              <div class="quick-info-item">
+                <span class="quick-icon" aria-label="GitHub">
+					<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+					<path fill="currentColor" d="M12 .297a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.1-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.11c1.02 0 2.05.14 3.01.41 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.62-2.8 5.65-5.48 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.83.58A12 12 0 0 0 12 .297z"/>
+					</svg>
+				</span>
+                <div>
+                  <strong>GitHub</strong><br />
+                  <span class="muted">github.com/yourusername</span>
+                </div>
+              </div>
+              <div class="quick-info-item">
+                <span class="quick-icon" aria-label="LinkedIn">
+					<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+						<path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+					</svg>
+				</span>
+                <div>
+                  <strong>LinkedIn</strong><br />
+                  <span class="muted">linkedin.com/in/yourprofile</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card fade-up">
+          <div class="card-inner">
+            <h3>Send a Message</h3>
+            <p class="form-note">
+              This demo validates the form and shows a success message without reloading the page.
+            </p>
+
+            <form id="contactForm" novalidate>
+              <div class="input-wrap">
+                <i data-lucide="user-round" class="input-icon"></i>
+                <input class="field" type="text" id="name" name="name" placeholder="Your Name" />
+              </div>
+              <div class="input-wrap">
+                <i data-lucide="mail" class="input-icon"></i>
+                <input class="field" type="email" id="email" name="email" placeholder="Your Email" />
+              </div>
+              <div class="input-wrap textarea-wrap">
+                <i data-lucide="message-square-text" class="input-icon"></i>
+                <textarea class="field" id="message" name="message" placeholder="Tell me about your project"></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">
+                <i data-lucide="send" class="icon"></i>
+                Send Message
+              </button>
+            </form>
+
+            <div class="success-box" id="successBox">
+              <i data-lucide="circle-check-big" class="icon"></i>
+              Message submitted successfully. Connect this form to a real service before production use.
+            </div>
+
+            <div class="error-box" id="errorBox">
+              <i data-lucide="triangle-alert" class="icon"></i>
+              Please fill in all fields correctly before submitting.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Your Name. Built with HTML, CSS, and JavaScript.</div>
+      <div class="socials">
+        <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" aria-label="GitHub">
+			<svg class="icon" role="img" viewBox="0 0 24 24" aria-hidden="true">
+				<path fill="currentColor" d="M12 .297a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.1-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.11c1.02 0 2.05.14 3.01.41 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.62-2.8 5.65-5.48 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.83.58A12 12 0 0 0 12 .297z"/>
+			</svg>
+		</a>
+
+		<a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+			<svg class="icon" role="img" viewBox="0 0 24 24" aria-hidden="true">
+				<path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+			</svg>
+		</a>
+        <a href="mailto:yourname@email.com" aria-label="Email">
+          <i data-lucide="mail" class="icon"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+	<script>lucide.createIcons();</script>
+  <script src="script.js"></script>
+</body>
+</html>

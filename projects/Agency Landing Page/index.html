@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXA Agency</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-strong: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.68);
+      --soft: rgba(255, 255, 255, 0.48);
+      --accent1: #7c3aed;
+      --accent2: #4f46e5;
+      --success: #34d399;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(79, 70, 229, 0.22), transparent 28%),
+        radial-gradient(circle at left, rgba(124, 58, 237, 0.18), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    p.lead {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-top: 22px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 18px;
+      z-index: 10;
+      padding-top: 18px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(14px);
+      border-radius: 999px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      color: #fff;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 18px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #111;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--border);
+      color: #fff;
+    }
+
+    .hero {
+      padding: 70px 0 54px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+      min-height: 78vh;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(79, 70, 229, 0.14);
+      border: 1px solid rgba(129, 140, 248, 0.2);
+      color: #c7d2fe;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 30px;
+      color: var(--soft);
+      font-size: 14px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-card {
+      padding: 18px;
+      position: relative;
+    }
+
+    .hero-card-inner {
+      background: rgba(8, 8, 12, 0.88);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 24px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card-top p {
+      color: var(--soft);
+      font-size: 14px;
+    }
+
+    .status {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.18);
+      color: #a7f3d0;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .snapshot-grid,
+    .stats-grid,
+    .services-grid,
+    .testimonial-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .snapshot-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .mini-card,
+    .stat,
+    .service,
+    .testimonial,
+    .reason-item,
+    .step {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+
+    .mini-card {
+      padding: 20px;
+    }
+
+    .mini-card p,
+    .stat p,
+    .service p,
+    .testimonial p,
+    .reason-item,
+    .step p,
+    .contact-copy p,
+    .section-head p {
+      color: var(--muted);
+    }
+
+    .metric {
+      font-size: 36px;
+      font-weight: 800;
+      margin-top: 8px;
+      line-height: 1;
+    }
+
+    .mini-span {
+      grid-column: 1 / -1;
+    }
+
+    .chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: rgba(255,255,255,0.82);
+      font-size: 13px;
+    }
+
+    .stats-shell {
+      padding: 22px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      padding: 24px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .stat h3 {
+      font-size: 38px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .service,
+    .testimonial {
+      padding: 28px;
+      transition: 0.2s ease;
+    }
+
+    .service:hover,
+    .testimonial:hover {
+      transform: translateY(-4px);
+      background: var(--panel-strong);
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.08);
+      margin-bottom: 18px;
+    }
+
+    .service h3,
+    .testimonial .name,
+    .card-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .why-panel,
+    .process-panel,
+    .contact-panel {
+      padding: 32px;
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .reason-item {
+      padding: 18px;
+      font-size: 14px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .step-num {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      border-radius: 999px;
+      background: #fff;
+      color: #111;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonial-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .testimonial .role {
+      color: var(--soft);
+      font-size: 14px;
+      margin-top: 3px;
+    }
+
+    .testimonial .meta {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-panel {
+      background: linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 240px;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--soft);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .why-grid,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .menu {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero-grid,
+      .services-grid,
+      .stats-grid,
+      .snapshot-grid,
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .why-panel,
+      .process-panel,
+      .contact-panel,
+      .service,
+      .testimonial,
+      .stat {
+        padding: 22px;
+      }
+
+      .topbar {
+        top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <nav class="nav">
+        <div class="brand">NEXA Agency</div>
+        <div class="menu">
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="btn btn-primary" href="#contact">Book a Call</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="pill">Creative growth for modern brands</div>
+        <h1>We build landing pages and campaigns that make your brand impossible to ignore.</h1>
+        <p class="lead">
+          Strategy, design, and performance marketing under one roof. Built for founders who want stronger positioning, better conversion, and faster growth.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Start Your Project</a>
+          <a class="btn btn-secondary" href="#services">Explore Services</a>
+        </div>
+        <div class="hero-trust">
+          <span>Trusted by startups and scaling brands</span>
+          <span>Fast execution</span>
+          <span>Performance-first approach</span>
+        </div>
+      </div>
+
+      <div class="card hero-card">
+        <div class="hero-card-inner">
+          <div class="card-top">
+            <div>
+              <p>Campaign Snapshot</p>
+              <div class="card-title">Spring Growth Launch</div>
+            </div>
+            <div class="status">Live</div>
+          </div>
+
+          <div class="snapshot-grid">
+            <div class="mini-card">
+              <p>Conversion Rate</p>
+              <div class="metric">+38%</div>
+              <p>After landing page redesign</p>
+            </div>
+            <div class="mini-card">
+              <p>Cost Per Lead</p>
+              <div class="metric">-22%</div>
+              <p>Through creative optimization</p>
+            </div>
+            <div class="mini-card mini-span">
+              <p>Agency Focus</p>
+              <div class="chip-wrap">
+                <span class="chip">Positioning</span>
+                <span class="chip">Design</span>
+                <span class="chip">Ads</span>
+                <span class="chip">Funnels</span>
+                <span class="chip">Reporting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="card stats-shell">
+        <div class="stats-grid">
+          <div class="stat">
+            <h3>120+</h3>
+            <p>Projects Delivered</p>
+          </div>
+          <div class="stat">
+            <h3>4.9/5</h3>
+            <p>Client Satisfaction</p>
+          </div>
+          <div class="stat">
+            <h3>38%</h3>
+            <p>Avg. Conversion Lift</p>
+          </div>
+          <div class="stat">
+            <h3>24/7</h3>
+            <p>Support Response</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>Everything needed to turn attention into customers.</h2>
+        <p class="lead">
+          Most agencies either make things look nice or run ads badly. We connect strategy, design, and growth so the whole system works.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service">
+          <div class="icon-box"></div>
+          <h3>Brand Strategy</h3>
+          <p>Position your business with a clear message, sharper offers, and a brand people remember.</p>
+        </article>
+        <article class="service">
+          <div class="icon-box"></div>
+          <h3>Web Design</h3>
+          <p>High-converting websites built to look premium, load fast, and turn clicks into leads.</p>
+        </article>
+        <article class="service">
+          <div class="icon-box"></div>
+          <h3>Performance Marketing</h3>
+          <p>Data-driven campaigns across search and social focused on revenue, not vanity metrics.</p>
+        </article>
+        <article class="service">
+          <div class="icon-box"></div>
+          <h3>Content Production</h3>
+          <p>Creative assets, landing page copy, and campaign content tailored for modern growth.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="container why-grid">
+      <div class="card why-panel">
+        <span class="eyebrow">Why Us</span>
+        <h2>We do the hard part most teams avoid: making the offer clear.</h2>
+        <p class="lead">
+          Weak positioning ruins strong design. Bad funnels kill expensive traffic. We fix the full journey so your brand looks sharp and your marketing performs.
+        </p>
+        <div class="reason-grid">
+          <div class="reason-item">Premium, conversion-focused design</div>
+          <div class="reason-item">Clear reporting without vanity metrics</div>
+          <div class="reason-item">Fast launch cycles and practical execution</div>
+          <div class="reason-item">Messaging shaped by real market behavior</div>
+        </div>
+      </div>
+
+      <div class="card process-panel">
+        <span class="eyebrow">Process</span>
+        <h2>How we move fast without creating a mess.</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <p>Audit your current brand, funnel, and traffic.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <p>Build a focused growth strategy with clear priorities.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <p>Design and launch pages, creatives, and campaigns.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <p>Optimize weekly based on real performance data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Testimonials</span>
+        <h2>Clients stay because the work holds up.</h2>
+        <p class="lead">Real growth comes from stronger positioning, cleaner execution, and relentless iteration.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <article class="testimonial">
+          <p>“They rebuilt our website and tightened our offer. Leads improved within weeks, and the brand finally looked premium.”</p>
+          <div class="meta">
+            <div class="name">Ayesha Malik</div>
+            <div class="role">Founder, Nova Studio</div>
+          </div>
+        </article>
+        <article class="testimonial">
+          <p>“What stood out was execution speed. No fluff, no agency theater, just solid work that moved revenue.”</p>
+          <div class="meta">
+            <div class="name">Usman Riaz</div>
+            <div class="role">Director, ScaleCart</div>
+          </div>
+        </article>
+        <article class="testimonial">
+          <p>“Clean design, sharper messaging, and campaigns that actually made sense. The difference in conversion rate was obvious.”</p>
+          <div class="meta">
+            <div class="name">Sara Khan</div>
+            <div class="role">Marketing Lead, Vertex</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="card contact-panel">
+        <div class="contact-copy">
+          <span class="eyebrow">Let’s Build</span>
+          <h2>Ready to upgrade your brand, website, and conversion strategy?</h2>
+          <p class="lead">Book a discovery call and get a focused plan for your next phase of growth.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:hello@nexaagency.com">hello@nexaagency.com</a>
+          <a class="btn btn-secondary" href="#">Schedule a Strategy Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 NEXA Agency. Built for conversion, not decoration.</div>
+  </footer>
+</body>
+</html>

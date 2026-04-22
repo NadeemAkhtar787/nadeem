@@ -1,0 +1,226 @@
+:root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --primary: #111827;
+      --soft: #f3f4f6;
+      --success-soft: #eafaf1;
+      --danger-soft: #fdecec;
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+    }
+
+    body {
+      background: linear-gradient(180deg, #f8fafc 0%, #f3f6fb 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    .sidebar {
+      min-height: 100vh;
+      background: #fff;
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+    }
+
+    .brand-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .nav-link-custom {
+      color: #4b5563;
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link-custom:hover {
+      background: var(--soft);
+      color: var(--text);
+    }
+
+    .nav-link-custom.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .card-ui {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .pill-up,
+    .pill-down {
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 5px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-up {
+      background: var(--success-soft);
+      color: #0f9f58;
+    }
+
+    .pill-down {
+      background: var(--danger-soft);
+      color: #cc3d3d;
+    }
+
+    .search-box {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding-left: 40px;
+      height: 48px;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+
+    .avatar-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .chart-bars {
+      height: 260px;
+      display: flex;
+      align-items: end;
+      gap: 14px;
+      padding-top: 12px;
+    }
+
+    .chart-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      height: 100%;
+      justify-content: end;
+    }
+
+    .chart-bar {
+      width: 100%;
+      max-width: 54px;
+      border-radius: 18px 18px 6px 6px;
+      background: linear-gradient(180deg, #1f2937 0%, #4b5563 100%);
+    }
+
+    .chart-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .mini-line {
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+      border: 1px dashed #e5e7eb;
+    }
+
+    .mini-line svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .activity-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .task-row,
+    .activity-row {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .upgrade-card {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 22px;
+    }
+
+    .snapshot-card {
+      background: #111827;
+      color: #fff;
+      border-radius: 22px;
+    }
+
+    .soft-box {
+      background: rgba(255,255,255,0.09);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .small-muted {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 991.98px) {
+      .sidebar {
+        min-height: auto;
+        position: relative;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+    }
